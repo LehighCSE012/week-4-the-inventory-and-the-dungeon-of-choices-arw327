@@ -1,1 +1,76 @@
-# Your code goes here
+""" this module implements an adventure game"""
+import random
+
+inventory
+def display_player_status(player_health):
+    """ this will display the user the current health"""
+    print(f'Your current health: {player_health}')
+
+def handle_path_choice(player_health):
+    """this sees where the player where go and how it affects player health, NO imput from user"""
+    chosen_path = random.choice(["left", "right"])
+    if chosen_path == "left":
+        player_health = min(player_health + 10, 100)
+        print("You encounter a friendly gnome who heals you for 10 health points.")
+
+    elif chosen_path == "right":
+        player_health -= 15
+        print("You fall into a pit and lose 15 health points.")
+        if player_health <= 0:
+            player_health = 0
+            print("You are barely alive!")
+    return player_health
+
+def player_attack(monster_health):
+    """this should update the current health of the monster, and it will simulat player's attack"""
+    monster_health -= 15
+    print("You strike the monster for 15 damage!")
+    return monster_health
+
+def monster_attack(player_health):
+    """update the player health after monster has striken and return back the player health"""
+    critical_hit = random.random()
+    if critical_hit < 0.5:
+        player_health -= 20
+        print("The monster lands a critical hit for 20 damage!")
+
+    elif critical_hit >= 0.5:
+        player_health -= 10
+        print("The monster hits you for 10 damage!")
+    return player_health
+
+def combat_encounter(player_health, monster_health, has_treasure):
+    """there is a combat encounter that has attacks/change the health monster & player in loop"""
+    while player_health > 0 and monster_health > 0:
+        display_player_status(player_health)
+        monster_health = player_attack(monster_health)
+        if monster_health <= 0:
+            print("You defeated the monster!")
+            return has_treasure
+        player_health = monster_attack(player_health)
+        if player_health <= 0:
+            print("Game Over!")
+            return None
+
+def check_for_treasure(has_treasure):
+    """this code will check if the monster will have treasure, then tell the user through a bool"""
+    if has_treasure:
+        print("You found the hidden treasure! You win!")
+    if not has_treasure:
+        print("The monster did not have the treasure. You continue your journey.")
+def main():
+    """this code will initialize and set values to variables"""
+    player_health_initial = 100
+    monster_health_initial = 70
+    has_treasure = False
+
+    has_treasure = random.choice([True, False])
+
+    player_health_initial = handle_path_choice(player_health_initial)
+
+    treasure_obtained_in_combat = \
+    combat_encounter(player_health_initial, monster_health_initial, has_treasure)
+    check_for_treasure(treasure_obtained_in_combat)
+
+if __name__ == "__main__":
+    main()# Your code goes here

@@ -1,7 +1,23 @@
 """ this module implements an adventure game"""
 import random
 
-inventory
+inventory = []
+
+def aquire_item(inventory, item):
+    """this will aquire item for the inventory"""
+    inventory.append(item)
+    print(f"You acquired a {item}!")
+    return inventory
+
+def display_inventory(inventory):
+    """this will display the user the inventory"""
+    if len(inventory) == 0:
+        print("Your inventory is empty")
+    else:
+        print("Your inventory:")
+        for i in range(len(inventory)):
+            print(f"{i + 1}. {inventory[i]}")
+
 def display_player_status(player_health):
     """ this will display the user the current health"""
     print(f'Your current health: {player_health}')
@@ -58,6 +74,18 @@ def check_for_treasure(has_treasure):
         print("You found the hidden treasure! You win!")
     if not has_treasure:
         print("The monster did not have the treasure. You continue your journey.")
+
+def enter_dungeon(player_health, inventory, dungeon_rooms):
+    dungeon_room == [0]
+        print(room_description)
+        if Spooky entrance hall
+            print("Spooky entrance hall")
+        if dungeon_room = Crystal Ball, Oxygen tank
+            acquire_item()
+        if 
+        
+
+
 def main():
     """this code will initialize and set values to variables"""
     player_health_initial = 100
@@ -71,6 +99,12 @@ def main():
     treasure_obtained_in_combat = \
     combat_encounter(player_health_initial, monster_health_initial, has_treasure)
     check_for_treasure(treasure_obtained_in_combat)
+
+    dungeon_rooms = []
+    dungeon_rooms.append(("Spooky entrance hall", None, "trap", ("You cleverly disarm the trap!", "You triggered the trap!", -15)) )
+    dungeon_rooms.append(("Cave with crystals", "Crystal Ball", "puzzle", ("You cracked the code!", "The chest remains stubbornly locked.", -5)))
+    dungeon_rooms.append(("Jail cell with dripping water", "Oxygen tank", None, None))
+    
 
 if __name__ == "__main__":
     main()# Your code goes here

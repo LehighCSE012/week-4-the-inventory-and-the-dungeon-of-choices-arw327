@@ -184,7 +184,7 @@ def main():
     dungeon_rooms.append((
         "Jail cell with dripping water",
         "Oxygen tank",
-        None,
+        "none",
         None
     ))
     current_inventory = []

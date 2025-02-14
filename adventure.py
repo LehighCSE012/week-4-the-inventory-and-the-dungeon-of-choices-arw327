@@ -134,7 +134,7 @@ def enter_dungeon(player_health, current_inventory, dungeon_rooms):
         print(room_description)
         if item:
             current_inventory = acquire_item(current_inventory, item)
-        if challenge_type is not None:
+        if challenge_type != "none":
             player_health, current_inventory = handle_challenge(
                 challenge_type,
                 current_inventory,

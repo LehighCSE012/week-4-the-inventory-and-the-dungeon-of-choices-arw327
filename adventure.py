@@ -6,7 +6,7 @@ inventory = []
 def acquire_item(current_inventory, item):
     """this will aquire item for the inventory"""
     current_inventory.append(item)
-    print(f"You acquired {item}!")
+    print(f"You acquired a {item}!")
     return current_inventory
 #this is still not working and displaying wrong on test 7, should it be a item?
 

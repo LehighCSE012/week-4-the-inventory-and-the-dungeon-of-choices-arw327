@@ -135,7 +135,12 @@ def enter_dungeon(player_health, current_inventory, dungeon_rooms):
         if item:
             current_inventory = acquire_item(current_inventory, item)
         if challenge_type != "none":
-            player_health, current_inventory = handle_challenge(challenge_type, current_inventory, challenge_outcome, player_health)
+            player_health, current_inventory = handle_challenge(
+                challenge_type,
+                current_inventory,
+                challenge_outcome,
+                player_health
+            )
             display_inventory(current_inventory)
         else:
             print("There is nothing in this room. You move on.")
@@ -150,19 +155,45 @@ def main():
     has_treasure = random.choice([True, False])
     player_health_initial = handle_path_choice(player_health_initial)
 
-    treasure_obtained_in_combat = combat_encounter(player_health_initial, monster_health_initial, has_treasure)
+    treasure_obtained_in_combat = combat_encounter(
+        player_health_initial,
+        monster_health_initial,
+        has_treasure
+    )
     if player_health_initial > 0 and treasure_obtained_in_combat:
         check_for_treasure(treasure_obtained_in_combat)
     else:
         print("Game Over!")
-
     dungeon_rooms = []
-    dungeon_rooms.append(("Spooky entrance hall", None, "trap", ("You cleverly disarm the trap!", "You triggered the trap!", -15)) )
-    dungeon_rooms.append(("Cave with crystals", "Crystal Ball", "puzzle", ("You cracked the code!", "The chest remains stubbornly locked.", -5)))
-    dungeon_rooms.append(("Jail cell with dripping water", "Oxygen tank", None, None))
+    dungeon_rooms.append((
+        "Spooky entrance hall",
+        None,
+        "trap",
+        ("You cleverly disarm the trap!",
+         "You triggered the trap!",
+         -15)
+    ))
+    dungeon_rooms.append((
+        "Caves with crystals",
+        "Crystal Ball",
+        "puzzle",
+        ("You cracked the code!",
+         "The chest remains stubbornly locked.",
+         -5)
+    ))
+    dungeon_rooms.append((
+        "Jail cell with dripping water",
+        "Oxygen tank",
+        None,
+        None
+    ))
     current_inventory = []
     if player_health_initial > 0:
-        player_health_initial, current_inventory = enter_dungeon(player_health_initial, current_inventory, dungeon_rooms)
+        player_health_initial, current_inventory = enter_dungeon(
+            player_health_initial,
+            current_inventory,
+            dungeon_rooms
+        )
 
 if __name__ == "__main__":
     main()# Your code goes here

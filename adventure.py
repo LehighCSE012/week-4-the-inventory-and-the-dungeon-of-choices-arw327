@@ -72,7 +72,7 @@ def check_for_treasure(has_treasure):
     """this code will check if the monster will have treasure, then tell the user through a bool"""
     if has_treasure:
         print("You found the hidden treasure! You win!")
-    if not has_treasure:
+    else has_treasure:
         print("The monster did not have the treasure. You continue your journey.")
 
 def enter_dungeon(player_health, inventory, dungeon_rooms):
@@ -135,15 +135,18 @@ def main():
 
     player_health_initial = handle_path_choice(player_health_initial)
 
-    treasure_obtained_in_combat =
-    combat_encounter(player_health_initial, monster_health_initial, has_treasure)
-    check_for_treasure(treasure_obtained_in_combat)
+    treasure_obtained_in_combat = combat_encounter(player_health_initial, monster_health_initial, has_treasure)
+    if player_health_initial > 0 and treasure_obtained_in_combat:
+        check_for_treasure(treasure_obtained_in_combat)
+    else:
+        print("Game Over!")
 
     dungeon_rooms = []
-    dungeon_rooms.append(("Spooky entrance hall", None, "trap", ("You cleverly disarm the trap!", "You triggered the trap!", -15)) )
-    dungeon_rooms.append(("Cave with crystals", "Crystal Ball", "puzzle", ("You cracked the code!", "The chest remains stubbornly locked.", -5)))
-    dungeon_rooms.append(("Jail cell with dripping water", "Oxygen tank", None, None))
+    dungeon_rooms.append(("Spooky entrance hall", None, "trap", ("You cleverly disarm the trap!", "You triggered the trap!", -15)) ))
+    dungeon_rooms.append(("Cave with crystals", "Crystal Ball", "puzzle", ("You cracked the code!", "The chest remains stubbornly locked.", -5))))
+    dungeon_rooms.append(("Jail cell with dripping water", "Oxygen tank", None, None)
     
+    player_health_initial, inventory = enter_dungeon(player_health_initial, inventory, dungeon_rooms)
 
 if __name__ == "__main__":
     main()# Your code goes here

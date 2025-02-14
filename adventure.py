@@ -142,9 +142,9 @@ def main():
         print("Game Over!")
 
     dungeon_rooms = []
-    dungeon_rooms.append(("Spooky entrance hall", None, "trap", ("You cleverly disarm the trap!", "You triggered the trap!", -15)) ))
-    dungeon_rooms.append(("Cave with crystals", "Crystal Ball", "puzzle", ("You cracked the code!", "The chest remains stubbornly locked.", -5))))
-    dungeon_rooms.append(("Jail cell with dripping water", "Oxygen tank", None, None)
+    dungeon_rooms.append(("Spooky entrance hall", None, "trap", ("You cleverly disarm the trap!", "You triggered the trap!", -15)) )
+    dungeon_rooms.append(("Cave with crystals", "Crystal Ball", "puzzle", ("You cracked the code!", "The chest remains stubbornly locked.", -5)))
+    dungeon_rooms.append(("Jail cell with dripping water", "Oxygen tank", None, None))
     
     player_health_initial, inventory = enter_dungeon(player_health_initial, inventory, dungeon_rooms)
 

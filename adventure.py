@@ -83,24 +83,47 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
         challenge_outcome = room[3]
 
         print(room_description)
-        if challenge_type != "None":
-            if challenge_type == "puzzle"
-                print("")
-            elif challenge_type == "trap":
-                print("")
-
-        else:
-            print("There is nothing in this room. You move on.")
-
-            display_inventory(inventory)
-    
-    if item is not None: 
+        if item is not None: 
             inventory = acquire_item(inventory, item)
-     
-    return player_health, inventory
 
-        
-
+        if challenge_type != "none":
+            if challenge_type == "puzzle":
+                print("You've encountered a puzzle!")
+                choice = input("Solve or skip?: ")
+                success = random.choice([True, False])
+                if success:
+                    print(challenge_outcome[0])
+                    player_health += challenge_outcome[2]
+                    if player_health < 0:
+                        player_health = 0
+                        print("You are barely alive!")
+                else:
+                    print(challenge_outcome[1])
+                    player_health += challenge_outcome[2]
+                    if player_health < 0:
+                        player_health = 0
+                        print("You are barely alive!")
+            
+            elif challenge_type == "trap":
+                print("You've encountered a trap!")
+                choice = input("Disarm or bypass?: ")
+                success = random.choice([True, False])
+                if success:
+                    print(challenge_outcome[0]
+                    player_health += challenge_outcome[2]
+                    if player_health < 0:
+                        player_health = 0
+                        print("You are barely alive!")
+                else:
+                    print(challenge_outcome[1])
+                    player_health += challenge_outcome[2]
+                    if player_health < 0:
+                        player_health = 0
+                        print("You are barely alive!")
+            else:
+                print("there is nothing in this room. You move on.")
+            display_inventory(inventory)
+        return player_health, inventory
 
 def main():
     """this code will initialize and set values to variables"""
@@ -112,7 +135,7 @@ def main():
 
     player_health_initial = handle_path_choice(player_health_initial)
 
-    treasure_obtained_in_combat = \
+    treasure_obtained_in_combat =
     combat_encounter(player_health_initial, monster_health_initial, has_treasure)
     check_for_treasure(treasure_obtained_in_combat)
 

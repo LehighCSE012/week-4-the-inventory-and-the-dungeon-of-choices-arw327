@@ -83,7 +83,7 @@ def handle_challenge(challenge_type, current_inventory, challenge_outcome, playe
     if not isinstance(current_inventory, list):
         current_inventory = []
     if challenge_type == "puzzle":
-        print("You've encountered a puzzle!")
+        print("You encounter a puzzle!")
         choice = input("Solve or skip?: ")
         if choice.lower().strip() == 'solve':
             success_chance = 0.7

@@ -5,9 +5,9 @@ inventory = []
 
 def acquire_item(current_inventory, item):
     """this will aquire item for the inventory"""
-    inventory.append(item)
+    current_inventory.append(item)
     print(f"You acquired a {item}!")
-    return inventory
+    return current_inventory
 
 def display_inventory(current_inventory):
     """this will display the user the inventory"""
@@ -76,6 +76,7 @@ def check_for_treasure(has_treasure):
         print("The monster did not have the treasure. You continue your journey.")
 
 def handle_challenge(challenge_type, current_inventory, challenge_outcome, player_health):
+    """this code split up the enter dungeon region so less if statements"""
     if current_inventory is None:
         current_inventory = []
     if not isinstance(current_inventory, list):

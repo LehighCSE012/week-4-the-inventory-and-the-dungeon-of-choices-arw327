@@ -123,7 +123,7 @@ def handle_challenge(challenge_type, current_inventory, challenge_outcome, playe
     display_inventory(current_inventory)
     return player_health, current_inventory
 
-def enter_dungeon(player_health, inventory, dungeon_rooms):
+def enter_dungeon(player_health, current_inventory, dungeon_rooms):
     for room in dungeon_rooms:
         room_description = room[0]
         item = room[1]
@@ -132,14 +132,14 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
 
         print(room_description)
         if item: 
-            inventory = acquire_item(inventory, item)
+            current_inventory = acquire_item(current_inventory, item)
         if challenge_type != "none":
-            player_health, inventory = handle_challenge(challenge_type, challenge_outcome, player_health, inventory)
-            display_inventory(inventory)
+            player_health, current_inventory = handle_challenge(challenge_type, current_inventory, challenge_outcome, player_health)
+            display_inventory(current_inventory)
         else:
             print("There is nothing in this room. You move on.")
     
-    return player_health, inventory
+    return player_health, current_inventory
 
 def main():
     """this code will initialize and set values to variables"""

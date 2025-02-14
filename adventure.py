@@ -8,6 +8,7 @@ def acquire_item(current_inventory, item):
     current_inventory.append(item)
     print(f"You acquired {item}!")
     return current_inventory
+#this is still not working and displaying wrong on test 7, should it be a item?
 
 def display_inventory(current_inventory):
     """this will display the user the inventory"""
@@ -187,6 +188,7 @@ def main():
         "none",
         None
     ))
+#tuples, immutable, cannot be changed outside-if i did an append. for a dungeon
     current_inventory = []
     if player_health_initial > 0:
         player_health_initial, current_inventory = enter_dungeon(

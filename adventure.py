@@ -72,7 +72,7 @@ def check_for_treasure(has_treasure):
     """this code will check if the monster will have treasure, then tell the user through a bool"""
     if has_treasure:
         print("You found the hidden treasure! You win!")
-    else has_treasure:
+    else:
         print("The monster did not have the treasure. You continue your journey.")
 
 def enter_dungeon(player_health, inventory, dungeon_rooms):

@@ -11,7 +11,7 @@ def acquire_item(current_inventory, item):
 
 def display_inventory(current_inventory):
     """this will display the user the inventory"""
-    if len(inventory) == 0:
+    if len(current_inventory) == 0:
         print("Your inventory is empty")
     else:
         print("Your inventory:")

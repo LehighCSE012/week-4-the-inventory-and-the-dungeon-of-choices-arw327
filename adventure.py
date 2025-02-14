@@ -3,20 +3,20 @@ import random
 
 inventory = []
 
-def acquire_item(inventory, item):
+def acquire_item(current_inventory, item):
     """this will aquire item for the inventory"""
     inventory.append(item)
     print(f"You acquired a {item}!")
     return inventory
 
-def display_inventory(inventory):
+def display_inventory(current_inventory):
     """this will display the user the inventory"""
     if len(inventory) == 0:
         print("Your inventory is empty")
     else:
         print("Your inventory:")
-        for i in range(len(inventory)):
-            print(f"{i + 1}. {inventory[i]}")
+        for i, item in enumerate(current_inventory):
+            print(f"{i + 1}. {item}")
 
 def display_player_status(player_health):
     """ this will display the user the current health"""
@@ -66,7 +66,7 @@ def combat_encounter(player_health, monster_health, has_treasure):
         player_health = monster_attack(player_health)
         if player_health <= 0:
             print("Game Over!")
-            return None
+            return False
 
 def check_for_treasure(has_treasure):
     """this code will check if the monster will have treasure, then tell the user through a bool"""
@@ -75,15 +75,21 @@ def check_for_treasure(has_treasure):
     else:
         print("The monster did not have the treasure. You continue your journey.")
 
-def handle_challenge(challenge_type, inventory, challenge_outcome, player_health):
-    if inventory is None:
-        inventory = []
-    if not isinstance(inventory, list):
-        inventory = []
+def handle_challenge(challenge_type, current_inventory, challenge_outcome, player_health):
+    if current_inventory is None:
+        current_inventory = []
+    if not isinstance(current_inventory, list):
+        current_inventory = []
     if challenge_type == "puzzle":
         print("You've encountered a puzzle!")
         choice = input("Solve or skip?: ")
-        success = random.choice([True, False])
+        if choice.lower().strip() == 'solve'
+            success_chance = 0.7
+        else:
+            success_chance = 0.3
+            
+        success = random.random() < success_chance
+
         if success:
             print(challenge_outcome[0])
             player_health += challenge_outcome[2]
@@ -96,7 +102,8 @@ def handle_challenge(challenge_type, inventory, challenge_outcome, player_health
             if player_health < 0:
                 player_health = 0
                 print("You are barely alive!")
-            
+        display_inventory(current_inventory)
+
     elif challenge_type == "trap":
         print("You've encountered a trap!")
         choice = input("Disarm or bypass?: ")
@@ -113,8 +120,8 @@ def handle_challenge(challenge_type, inventory, challenge_outcome, player_health
             if player_health < 0:
                 player_health = 0
                 print("You are barely alive!")
-    display_inventory(inventory)
-    return player_health, inventory
+    display_inventory(current_inventory)
+    return player_health, current_inventory
 
 def enter_dungeon(player_health, inventory, dungeon_rooms):
     for room in dungeon_rooms:

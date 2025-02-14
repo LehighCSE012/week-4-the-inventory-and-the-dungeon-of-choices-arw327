@@ -76,13 +76,29 @@ def check_for_treasure(has_treasure):
         print("The monster did not have the treasure. You continue your journey.")
 
 def enter_dungeon(player_health, inventory, dungeon_rooms):
-    dungeon_room == [0]
+    for room in dungeon_rooms:
+        room_description = room[0]
+        item = room[1]
+        challenge_type = room[2]
+        challenge_outcome = room[3]
+
         print(room_description)
-        if Spooky entrance hall
-            print("Spooky entrance hall")
-        if dungeon_room = Crystal Ball, Oxygen tank
-            acquire_item()
-        if 
+        if challenge_type != "None":
+            if challenge_type == "puzzle"
+                print("")
+            elif challenge_type == "trap":
+                print("")
+
+        else:
+            print("There is nothing in this room. You move on.")
+
+            display_inventory(inventory)
+    
+    if item is not None: 
+            inventory = acquire_item(inventory, item)
+     
+    return player_health, inventory
+
         
 
 

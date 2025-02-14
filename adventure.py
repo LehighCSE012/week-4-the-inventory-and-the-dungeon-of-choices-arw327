@@ -5,11 +5,8 @@ inventory = []
 
 def acquire_item(current_inventory, item):
     """this will aquire item for the inventory"""
-    if not item:
-        print("You found nothing.")
-    else:
-        current_inventory.append(item)
-        print(f"You acquired a {item}!")
+    current_inventory.append(item)
+    print(f"You acquired a {item}!")
     return current_inventory
 
 def display_inventory(current_inventory):

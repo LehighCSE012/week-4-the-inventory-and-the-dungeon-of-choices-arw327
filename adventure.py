@@ -125,6 +125,7 @@ def handle_challenge(challenge_type, current_inventory, challenge_outcome, playe
     return player_health, current_inventory
 
 def enter_dungeon(player_health, current_inventory, dungeon_rooms):
+    """this is for the player to enter the dungeon and start the items"""
     for room in dungeon_rooms:
         room_description = room[0]
         item = room[1]

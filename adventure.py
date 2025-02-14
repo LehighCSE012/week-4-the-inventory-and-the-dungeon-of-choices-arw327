@@ -131,20 +131,10 @@ def enter_dungeon(player_health, current_inventory, dungeon_rooms):
         item = room[1]
         challenge_type = room[2]
         challenge_outcome = room[3]
-
         print(room_description)
         if item:
             current_inventory = acquire_item(current_inventory, item)
         if challenge_type is not None:
-            player_health, current_inventory = handle_challenge(
-                challenge_type,
-                current_inventory,
-                challenge_outcome,
-                player_health
-            )
-            display_inventory(current_inventory)
-        else:
-            print("There doesn't seem to be a challenge in this room.")
             player_health, current_inventory = handle_challenge(
                 challenge_type,
                 current_inventory,

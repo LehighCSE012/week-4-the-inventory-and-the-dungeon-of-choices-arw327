@@ -78,7 +78,7 @@ def check_for_treasure(has_treasure):
 def handle_challenge(challenge_type, inventory, challenge_outcome, player_health):
     if inventory is None:
         inventory = []
-    if no isinstance(inventory, list):
+    if not isinstance(inventory, list):
         inventory = []
     if challenge_type == "puzzle":
         print("You've encountered a puzzle!")

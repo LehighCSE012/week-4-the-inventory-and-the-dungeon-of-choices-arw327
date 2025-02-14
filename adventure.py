@@ -155,7 +155,8 @@ def main():
     dungeon_rooms.append(("Cave with crystals", "Crystal Ball", "puzzle", ("You cracked the code!", "The chest remains stubbornly locked.", -5)))
     dungeon_rooms.append(("Jail cell with dripping water", "Oxygen tank", None, None))
     inventory = []
-    player_health_initial, inventory = enter_dungeon(player_health_initial, inventory, dungeon_rooms)
+    if player_health > 0:
+        player_health_initial, inventory = enter_dungeon(player_health_initial, inventory, dungeon_rooms)
 
 if __name__ == "__main__":
     main()# Your code goes here

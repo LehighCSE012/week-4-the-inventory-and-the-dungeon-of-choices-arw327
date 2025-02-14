@@ -89,7 +89,6 @@ def handle_challenge(challenge_type, current_inventory, challenge_outcome, playe
             success_chance = 0.7
         else:
             success_chance = 0.3
-            
         success = random.random() < success_chance
 
         if success:
@@ -133,14 +132,13 @@ def enter_dungeon(player_health, current_inventory, dungeon_rooms):
         challenge_outcome = room[3]
 
         print(room_description)
-        if item: 
+        if item:
             current_inventory = acquire_item(current_inventory, item)
         if challenge_type != "none":
             player_health, current_inventory = handle_challenge(challenge_type, current_inventory, challenge_outcome, player_health)
             display_inventory(current_inventory)
         else:
             print("There is nothing in this room. You move on.")
-    
     return player_health, current_inventory
 
 def main():
@@ -150,7 +148,6 @@ def main():
     has_treasure = False
 
     has_treasure = random.choice([True, False])
-
     player_health_initial = handle_path_choice(player_health_initial)
 
     treasure_obtained_in_combat = combat_encounter(player_health_initial, monster_health_initial, has_treasure)

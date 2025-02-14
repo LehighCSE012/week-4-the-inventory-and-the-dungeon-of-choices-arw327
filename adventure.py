@@ -12,7 +12,7 @@ def acquire_item(current_inventory, item):
 def display_inventory(current_inventory):
     """this will display the user the inventory"""
     if len(current_inventory) == 0:
-        print("Your inventory is empty")
+        print("Your inventory is empty.")
     else:
         print("Your inventory:")
         for i, item in enumerate(current_inventory):

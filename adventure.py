@@ -6,7 +6,7 @@ inventory = []
 def acquire_item(current_inventory, item):
     """this will aquire item for the inventory"""
     current_inventory.append(item)
-    print(f"You acquired a {item}!")
+    print(f"You acquired {item}!")
     return current_inventory
 
 def display_inventory(current_inventory):

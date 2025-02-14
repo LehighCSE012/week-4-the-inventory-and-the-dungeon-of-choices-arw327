@@ -106,7 +106,7 @@ def handle_challenge(challenge_type, current_inventory, challenge_outcome, playe
         display_inventory(current_inventory)
 
     elif challenge_type == "trap":
-        print("You've encountered a trap!")
+        print("You see a potential a trap!")
         choice = input("Disarm or bypass?: ")
         success = random.choice([True, False])
         if success:

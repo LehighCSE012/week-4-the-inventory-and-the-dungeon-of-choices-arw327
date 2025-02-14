@@ -144,6 +144,15 @@ def enter_dungeon(player_health, current_inventory, dungeon_rooms):
             )
             display_inventory(current_inventory)
         else:
+            print("There doesn't seem to be a challenge in this room.")
+            player_health, current_inventory = handle_challenge(
+                challenge_type,
+                current_inventory,
+                challenge_outcome,
+                player_health
+            )
+            display_inventory(current_inventory)
+        else:
             print("There is nothing in this room. You move on.")
     return player_health, current_inventory
 

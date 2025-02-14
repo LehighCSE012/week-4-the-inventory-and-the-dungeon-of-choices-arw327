@@ -3,7 +3,7 @@ import random
 
 inventory = []
 
-def aquire_item(inventory, item):
+def acquire_item(inventory, item):
     """this will aquire item for the inventory"""
     inventory.append(item)
     print(f"You acquired a {item}!")
@@ -75,6 +75,43 @@ def check_for_treasure(has_treasure):
     else:
         print("The monster did not have the treasure. You continue your journey.")
 
+def handle_challenge(challenge_type, inventory, challenge_outcome, player_health):
+    if challenge_type == "puzzle":
+        print("You've encountered a puzzle!")
+        choice = input("Solve or skip?: ")
+        success = random.choice([True, False])
+        if success:
+            print(challenge_outcome[0])
+            player_health += challenge_outcome[2]
+            if player_health < 0:
+                player_health = 0
+                print("You are barely alive!")
+        else:
+            print(challenge_outcome[1])
+            player_health += challenge_outcome[2]
+            if player_health < 0:
+                player_health = 0
+                print("You are barely alive!")
+            
+    elif challenge_type == "trap":
+        print("You've encountered a trap!")
+        choice = input("Disarm or bypass?: ")
+        success = random.choice([True, False])
+        if success:
+            print(challenge_outcome[0])
+            player_health += challenge_outcome[2]
+            if player_health < 0:
+                player_health = 0
+                print("You are barely alive!")
+        else:
+            print(challenge_outcome[1])
+            player_health += challenge_outcome[2]
+            if player_health < 0:
+                player_health = 0
+                print("You are barely alive!")
+    display_inventory(inventory)
+    return player_health, inventory
+
 def enter_dungeon(player_health, inventory, dungeon_rooms):
     for room in dungeon_rooms:
         room_description = room[0]
@@ -83,46 +120,14 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
         challenge_outcome = room[3]
 
         print(room_description)
-        if item is not None: 
+        if item: 
             inventory = acquire_item(inventory, item)
-
         if challenge_type != "none":
-            if challenge_type == "puzzle":
-                print("You've encountered a puzzle!")
-                choice = input("Solve or skip?: ")
-                success = random.choice([True, False])
-                if success:
-                    print(challenge_outcome[0])
-                    player_health += challenge_outcome[2]
-                    if player_health < 0:
-                        player_health = 0
-                        print("You are barely alive!")
-                else:
-                    print(challenge_outcome[1])
-                    player_health += challenge_outcome[2]
-                    if player_health < 0:
-                        player_health = 0
-                        print("You are barely alive!")
-            
-            elif challenge_type == "trap":
-                print("You've encountered a trap!")
-                choice = input("Disarm or bypass?: ")
-                success = random.choice([True, False])
-                if success:
-                    print(challenge_outcome[0])
-                    player_health += challenge_outcome[2]
-                    if player_health < 0:
-                        player_health = 0
-                        print("You are barely alive!")
-                else:
-                    print(challenge_outcome[1])
-                    player_health += challenge_outcome[2]
-                    if player_health < 0:
-                        player_health = 0
-                        print("You are barely alive!")
-            else:
-                print("there is nothing in this room. You move on.")
+            player_health, inventory = handle_challenge(challenge_type, challenge_outcome, player_health, inventory)
             display_inventory(inventory)
+        else:
+            print("There is nothing in this room. You move on.")
+    
     return player_health, inventory
 
 def main():

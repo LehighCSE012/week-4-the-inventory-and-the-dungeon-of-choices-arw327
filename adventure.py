@@ -76,6 +76,10 @@ def check_for_treasure(has_treasure):
         print("The monster did not have the treasure. You continue your journey.")
 
 def handle_challenge(challenge_type, inventory, challenge_outcome, player_health):
+    if inventory is None:
+        inventory = []
+    if no isinstance(inventory, list):
+        inventory = []
     if challenge_type == "puzzle":
         print("You've encountered a puzzle!")
         choice = input("Solve or skip?: ")
@@ -150,7 +154,7 @@ def main():
     dungeon_rooms.append(("Spooky entrance hall", None, "trap", ("You cleverly disarm the trap!", "You triggered the trap!", -15)) )
     dungeon_rooms.append(("Cave with crystals", "Crystal Ball", "puzzle", ("You cracked the code!", "The chest remains stubbornly locked.", -5)))
     dungeon_rooms.append(("Jail cell with dripping water", "Oxygen tank", None, None))
-    
+    inventory = []
     player_health_initial, inventory = enter_dungeon(player_health_initial, inventory, dungeon_rooms)
 
 if __name__ == "__main__":

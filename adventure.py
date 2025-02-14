@@ -161,7 +161,7 @@ def main():
     dungeon_rooms.append(("Spooky entrance hall", None, "trap", ("You cleverly disarm the trap!", "You triggered the trap!", -15)) )
     dungeon_rooms.append(("Cave with crystals", "Crystal Ball", "puzzle", ("You cracked the code!", "The chest remains stubbornly locked.", -5)))
     dungeon_rooms.append(("Jail cell with dripping water", "Oxygen tank", None, None))
-    inventory = []
+    current_inventory = []
     if player_health_initial > 0:
         player_health_initial, current_inventory = enter_dungeon(player_health_initial, current_inventory, dungeon_rooms)
 

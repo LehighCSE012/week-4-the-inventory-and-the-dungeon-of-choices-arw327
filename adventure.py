@@ -109,7 +109,7 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
                 choice = input("Disarm or bypass?: ")
                 success = random.choice([True, False])
                 if success:
-                    print(challenge_outcome[0]
+                    print(challenge_outcome[0])
                     player_health += challenge_outcome[2]
                     if player_health < 0:
                         player_health = 0
@@ -123,7 +123,7 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
             else:
                 print("there is nothing in this room. You move on.")
             display_inventory(inventory)
-        return player_health, inventory
+    return player_health, inventory
 
 def main():
     """this code will initialize and set values to variables"""

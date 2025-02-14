@@ -67,6 +67,7 @@ def combat_encounter(player_health, monster_health, has_treasure):
         if player_health <= 0:
             print("Game Over!")
             return False
+    return False
 
 def check_for_treasure(has_treasure):
     """this code will check if the monster will have treasure, then tell the user through a bool"""
@@ -76,7 +77,7 @@ def check_for_treasure(has_treasure):
         print("The monster did not have the treasure. You continue your journey.")
 
 def handle_challenge(challenge_type, current_inventory, challenge_outcome, player_health):
-    """this code split up the enter dungeon region so less if statements"""
+    """this code split up the enter dungeon region so less if with puzzle and trap"""
     if current_inventory is None:
         current_inventory = []
     if not isinstance(current_inventory, list):

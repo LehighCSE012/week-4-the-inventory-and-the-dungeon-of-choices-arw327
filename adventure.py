@@ -133,7 +133,6 @@ def enter_dungeon(player_health, current_inventory, dungeon_rooms):
         challenge_type = room[2]
         challenge_outcome = room[3]
         print(room_description)
-        print("You found a {item} in the room.")
         if item:
             current_inventory = acquire_item(current_inventory, item)
         if challenge_type != "none":

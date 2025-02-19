@@ -90,7 +90,7 @@ def handle_challenge(challenge_type, current_inventory, challenge_outcome, playe
             success_chance = 0.7
         else:
             success_chance = 0.3
-        success = random.choice() < success_chance
+        success = random.choice([True, False]) < success_chance
 
         if success:
             print(challenge_outcome[0])

@@ -46,7 +46,7 @@ def player_attack(monster_health):
 
 def monster_attack(player_health):
     """update the player health after monster has striken and return back the player health"""
-    critical_hit = random.random()
+    critical_hit = random.choice()
     if critical_hit < 0.5:
         player_health -= 20
         print("The monster lands a critical hit for 20 damage!")
